@@ -1,12 +1,30 @@
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
+-- local utils = require('utils')
+
+-- vim.keymap.set('i', [[<C-/>]], '<cmd>exe v:count1 . "ToggleTerm"<CR>')
+-- vim.keymap.set('n', [[<C-/>]], '<cmd>exe v:count1 . "ToggleTerm"<CR>')
+
+
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
+
+-- insert new line in normal mode
+-- https://www.reddit.com/r/neovim/comments/10kah18/how_to_insert_newline_without_entering_insert_mode/?rdt=59631
+
+vim.keymap.set('n', 'gO', "<Cmd>call append(line('.') - 1, repeat([''], v:count1))<CR>")
+vim.keymap.set('n', 'go', "<Cmd>call append(line('.'),     repeat([''], v:count1))<CR>")
+
+
+-- home key goes to first char on line not the beggining of line
+
+vim.keymap.set('i', '<Home>', '<C-o>^', { noremap = true, silent = true })
+vim.keymap.set('n', '<Home>', '^', { noremap = true, silent = true })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which

@@ -72,6 +72,10 @@ return {
       -- Enable Telescope extensions if they are installed
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
+      -- telescope.load_extension("fzf")
+
+      -- vim.keymap.set("n", "<leader>/s", "<cmd>Telescope live_grep<CR>", { desc = "Find string in cwd" })
+      -- vim.keymap.set('n', '<leader>ff', builtin.find_files({ cwd = '~/' }), { desc = 'Find files in home directory' })
 
       -- See `:help telescope.builtin`
       local builtin = require 'telescope.builtin'
