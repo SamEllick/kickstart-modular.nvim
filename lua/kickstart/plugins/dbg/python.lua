@@ -1,0 +1,1 @@
+require('dap-python').setup('/home/sam/miniforge3/envs/misc/bin/python')
